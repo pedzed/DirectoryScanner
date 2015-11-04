@@ -30,7 +30,7 @@ namespace pedzed\DirectoryScanner {
             );
             
             foreach($files as $file) {
-                $filePath = str_replace('\\', '/', $files->getSubPathName());
+                $filePath = str_replace('\\', '/', $file->getPath());
                 $scanResults[] = $filePath;
             }
             
