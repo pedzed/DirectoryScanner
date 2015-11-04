@@ -2,6 +2,9 @@
 
 namespace pedzed\DirectoryScanner {
     
+    use RecursiveDirectoryIterator;
+    use RecursiveIteratorIterator;
+    
     class DirectoryScanner {
         
         private $_directory;
@@ -17,13 +20,13 @@ namespace pedzed\DirectoryScanner {
         public function scan() {
             $scanResults = [];
             
-            $files = new \RecursiveDirectoryIterator(
+            $files = new RecursiveDirectoryIterator(
                 $this->getDirectory(),
-                \RecursiveDirectoryIterator::SKIP_DOTS
+                RecursiveDirectoryIterator::SKIP_DOTS
             );
-            $files = new \RecursiveIteratorIterator(
+            $files = new RecursiveIteratorIterator(
                 $files,
-                \RecursiveIteratorIterator::SELF_FIRST
+                RecursiveIteratorIterator::SELF_FIRST
             );
             
             foreach($files as $file) {
