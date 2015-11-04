@@ -7,8 +7,13 @@ namespace pedzed\DirectoryScanner\tests {
     
     class DirectoryScannerTest extends PHPUnit {
         
-        public function test() {
+        public function testSetDirectory() {
             $directoryScanner = new DirectoryScanner();
+            $directoryScanner->setDirectory(__DIR__.'/_data');
+            
+            $actualValue = $directoryScanner->getDirectory();
+            
+            $this->assertEquals(__DIR__.'/_data', $actualValue);
         }
         
     }
